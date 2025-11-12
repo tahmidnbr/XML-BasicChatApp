@@ -4,6 +4,7 @@ import android.R
 import android.text.Layout
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -42,8 +43,10 @@ class MessageAdapter(
             if (message.senderId == currentUserId) {
                 params.gravity = Gravity.END
                 //holder.binding.cardmsg.setBackgroundResource(R.drawable.bg_msg_sent)
+                holder.binding.cardmsg.layoutDirection = View.LAYOUT_DIRECTION_RTL
             } else {
                 params.gravity = Gravity.START
+                holder.binding.cardmsg.layoutDirection = View.LAYOUT_DIRECTION_LTR
                 //holder.binding.cardmsg.setBackgroundResource(R.drawable.bg_msg_received)
             }
             cardmsg.layoutParams = params
